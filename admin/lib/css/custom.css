@@ -1,0 +1,11 @@
+.card-header, .card-footer {
+    background-color: lightblue;
+}
+
+.center{
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: lightgreen;
+}
