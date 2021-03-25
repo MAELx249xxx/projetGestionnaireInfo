@@ -60,7 +60,7 @@ $cnx = Connexion::getInstance($dsn, $user, $password);
             if (file_exists($path)) {
                 include($path);
             } else {
-                include("./pages/page404.php");
+                include("./admin/pages/page404.php");
             }
             ?>
         </div>

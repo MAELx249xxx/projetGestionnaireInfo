@@ -9,5 +9,5 @@
             <input type="text" class="form-control" id="NameProduit">
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Rechercher</button>
+    <button type="submit" class="btn btn-primary">Rechercher le produit</button>
 </form>

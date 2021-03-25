@@ -1,1 +1,1 @@
-<h2>Page inexistante</h2>
+Cette page n'existe pas

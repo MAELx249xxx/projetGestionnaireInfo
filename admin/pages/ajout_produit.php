@@ -24,6 +24,6 @@
         <input type="text" class="form-control" id="idCat">
     </div>
     <div class="col-10">
-        <button type="submit" class="btn btn-primary">S'inscrire</button>
+        <button type="submit" class="btn btn-primary">Ajouter le produit</button>
     </div>
 </form>

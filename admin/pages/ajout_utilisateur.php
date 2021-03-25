@@ -36,7 +36,7 @@
         <input type="text" class="form-control" id="inputState">
     </div>
     <div class="col-10">
-        <button type="submit" class="btn btn-primary">Envoie</button>
+        <button type="submit" class="btn btn-primary">Ajouter l'utilisateur</button>
     </div>
 </form>
 
