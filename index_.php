@@ -1,19 +1,12 @@
 <!doctype html>
-
 <?php
 session_start();
-
-require './admin/lib/php/admin_liste_include.php';
+include('./admin/lib/php/admin_liste_include.php');
 $cnx = Connexion::getInstance($dsn, $user, $password);
 ?>
-
-
-
 <html>
 <head>
-    <title>Site 2021</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js%22%3E"
-    </script>
+    <title>Projet Gestionnaire Info</title>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
             integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
             crossorigin="anonymous"></script>
@@ -26,24 +19,16 @@ $cnx = Connexion::getInstance($dsn, $user, $password);
     <link rel="stylesheet" href="./admin/lib/css/custom.css"/>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="admin/lib/js/functions_jquery.js"></script>
+
 </head>
 
 <body>
+<div id="page" class="container">
+    <header class="img_header">
 
-
-<div id="page">
-
-    <section class="bann">
-        <?php
-        $path = "./admin/lib/php/header.php";
-        if (file_exists($path)) {
-            include($path);
-        }
-        ?>
-    </section>
-
-    <p>&nbsp;</p>
-
+    </header>
     <section id="colGauche">
         <nav>
             <?php
@@ -74,21 +59,23 @@ $cnx = Connexion::getInstance($dsn, $user, $password);
             }
             ?>
         </div>
+        <!--
+        <aside id="pub">
+            <img src="./images/pub.jpg" alt="publicité" />
+        </aside>
+        -->
     </section>
 
-    <p>&nbsp;</p>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <?php
+            $path = "./lib/php/public_footer.php";
+            if (file_exists($path)) {
+                include($path);
+            }
+            ?>
+        </div>
 
-</div>
-<section class="footer">
-    <nav>
-        <?php
-        $path = "./lib/php/public_footer.php";
-        if (file_exists($path)) {
-            include($path);
-        }
-        ?>
-    </nav>
-
-</section>
+    </footer>
 </body>
 </html>

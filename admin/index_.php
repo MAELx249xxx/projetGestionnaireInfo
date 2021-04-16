@@ -1,13 +1,12 @@
 <!doctype html>
 <?php
-//index public
 session_start();
 include('./lib/php/admin_liste_include.php');
 $cnx = Connexion::getInstance($dsn, $user, $password);
 ?>
 <html>
 <head>
-    <title>Site 2021</title>
+    <title>Projet Gestionnaire Info</title>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
             integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
             crossorigin="anonymous"></script>
@@ -28,8 +27,9 @@ $cnx = Connexion::getInstance($dsn, $user, $password);
 <body>
 <div id="page" class="container">
     <header class="img_header">
-
+        <a href="index_.php?page=deconnexion.php">Déconnexion ou retour à l'accueil public</a>
     </header>
+
     <section id="colGauche">
         <nav>
             <?php
@@ -39,36 +39,30 @@ $cnx = Connexion::getInstance($dsn, $user, $password);
             }
             ?>
         </nav>
-
     </section>
     <section id="contenu">
         <div id="main">
             <?php
-            if(isset($_SESSION['page']) && !isset($_SESSION['partie_admin'])){
+            if (isset($_SESSION['page']) && !isset($_SESSION['partie_admin'])) {
                 unset($_SESSION['page']);
-                $_SESSION['partie_admin']=1;
+                $_SESSION['partie_admin'] = 1;
             }
             if (!isset($_SESSION['page'])) {
                 $_SESSION['page'] = "accueil_admin.php";
             }
             if (isset($_GET['page'])) {
-                //si on a un param page dans l'url
                 $_SESSION['page'] = $_GET['page'];
             }
             $path = "./pages/" . $_SESSION['page'];
-            // print "path: " . $path . "<br>";
+
             if (file_exists($path)) {
                 include($path);
             } else {
-                include("./admin/pages/page404.php");
+                include("./pages/page404.php");
             }
             ?>
         </div>
-        <!--
-        <aside id="pub">
-            <img src="./images/pub.jpg" alt="publicité" />
-        </aside>
-        -->
+
     </section>
 
     <footer class="footer mt-auto py-3 bg-light">
@@ -84,4 +78,3 @@ $cnx = Connexion::getInstance($dsn, $user, $password);
     </footer>
 </body>
 </html>
-
