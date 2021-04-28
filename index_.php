@@ -59,11 +59,7 @@ $cnx = Connexion::getInstance($dsn, $user, $password);
             }
             ?>
         </div>
-        <!--
-        <aside id="pub">
-            <img src="./images/pub.jpg" alt="publicité" />
-        </aside>
-        -->
+
     </section>
 
     <footer class="footer mt-auto py-3 bg-light">
@@ -75,7 +71,6 @@ $cnx = Connexion::getInstance($dsn, $user, $password);
             }
             ?>
         </div>
-
     </footer>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-class Produit
+class Constructeur
 {
 
     private $_attributs = array();

@@ -11,6 +11,20 @@ class AdminBD extends Admin
         $this->_db = $cnx;
     }
 
+    public function getAllAdmin()
+    {
+        $query = "select * from pgi_admins order by id_admin";
+        $_resultset = $this->_db->prepare($query);
+        $_resultset->execute();
+
+        while ($d = $_resultset->fetch()) {
+            $_data[] = new  Admin($d);
+        }
+        //var_dump($_data);
+
+        return $_data;
+    }
+
     public function getAdmin($login, $password)
     {
         try {
@@ -26,4 +40,39 @@ class AdminBD extends Admin
             print "Erreur : " . $e->getMessage();
         }
     }
+
+    public function getAdminByReference($reference)
+    {
+        try {
+            $this->_db->beginTransaction();
+            $query = "select * from pgi_admins where reference = :reference";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(':reference', $reference);
+            $resultset->execute();
+            $data = $resultset->fetch();
+            return $data;
+
+            $this->_db->commit();
+        } catch (PDOException $e) {
+            print "Echec de la requête : " . $e->getMessage();
+            $_db->rollback();
+        }
+    }
+
+
+    public function supprimerAdmin($id_admin)
+    {
+        try {
+
+            $query = "delete from pgi_admins where id_admin = :id_admin";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(':id_admin', $id_admin);
+            $resultset->execute();
+
+            print  "L'admin a bien été supprimé<br><br>";
+        } catch (PDOException $e) {
+            print  "L'admin n'a pas été supprimé<br><br>";
+        }
+    }
+
 }

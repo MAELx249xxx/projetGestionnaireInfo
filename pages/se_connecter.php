@@ -4,7 +4,7 @@
 
 <form class="center">
     <div class="row mb-2 ">
-        <label for="idName" class="col-sm-2 col-form-label">Identifiant:</label>
+        <label for="idName" class="col-sm-2 col-form-label">Login:</label>
         <div class="col-sm-5">
             <input type="text" class="form-control" id="idName">
         </div>

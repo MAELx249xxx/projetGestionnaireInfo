@@ -16,25 +16,17 @@
                     <a class="nav-link" href="index_.php?page=inscrire.php">S'inscrire</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index_.php?page=modif_info.php">Modif infos</a>
+                    <a class="nav-link" href="index_.php?page=modif_info.php">Modifier ses informations</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Recherches
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="index_.php?page=liste_utilisateurs.php">Liste des Utilisateurs</a></li>
+                        <li><a class="dropdown-item" href="index_.php?page=liste_utilisateurs.php">Liste des utilisateurs</a></li>
                         <li><a class="dropdown-item" href="index_.php?page=liste_produits.php">Liste des produits</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="index_.php?page=recherche_produit.php">Recherche du produit sur son nom</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Private
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="./admin/index_.php">Connexion admin</a></li>
                     </ul>
                 </li>
             </ul>

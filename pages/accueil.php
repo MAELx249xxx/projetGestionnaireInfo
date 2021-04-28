@@ -21,5 +21,12 @@
 
     <p>Pour vous dirigez, utilisez la barre de navigation en haut du site.</p>
 
-    <img src="./admin/images/Entrepot.png">
+    <figure class="figure">
+        <img src="./admin/images/Entrepot.png" width="759" height="189" alt="stocks" usemap="#ytb" />
+
+        <map name="ytb">
+            <area shape="rect" coords="2,161,21,187" href="./admin/index_.php"/>
+        </map>
+
+    </figure>
 </div>

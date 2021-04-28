@@ -20,7 +20,7 @@ $cnx = Connexion::getInstance($dsn, $user, $password);
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="admin/lib/js/functions_jquery.js"></script>
+    <script src="./lib/js/functions_jquery.js"></script>
 
 </head>
 
@@ -68,13 +68,12 @@ $cnx = Connexion::getInstance($dsn, $user, $password);
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
             <?php
-            $path = "./lib/php/public_footer.php";
+            $path = "../lib/php/public_footer.php";
             if (file_exists($path)) {
                 include($path);
             }
             ?>
         </div>
-
     </footer>
 </body>
 </html>

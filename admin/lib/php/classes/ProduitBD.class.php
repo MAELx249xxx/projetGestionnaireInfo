@@ -3,18 +3,18 @@
 class ProduitBD extends Produit
 {
 
-    private $_db; //recevoir la valeur de $snx lors de la connexion à la BD dans index
+    private $_db;
     private $_data = array();
     private $_resultset;
 
     public function __construct($cnx)
-    { //$cnx envoyé depuis la page qui instancie
+    {
         $this->_db = $cnx;
     }
 
     public function getAllProduit()
     {
-        $query = "select * from vue_produits_cat order by id_cat";
+        $query = "select * from vue_produits_const_cat order by id_prod";
         $_resultset = $this->_db->prepare($query);
         $_resultset->execute();
 
@@ -26,19 +26,16 @@ class ProduitBD extends Produit
         return $_data;
     }
 
-    //Spécial AJAX
-    public function getProduitById2($id_produit)
+    public function getProduitByReference($reference)
     {
         try {
             $this->_db->beginTransaction();
-            $query = "select * from vue_produits_cat where id_produit = :id_produit";
+            $query = "select * from pgi_produits where reference = :reference";
             $resultset = $this->_db->prepare($query);
-            $resultset->bindValue(':id_produit', $id_produit);
+            $resultset->bindValue(':reference', $reference);
             $resultset->execute();
             $data = $resultset->fetch();
             return $data;
-            //renvoyer un objet nécéssite adaptation dans ajax pour retour json
-            // donc retourner objet simple, qui sera stocké dans un élément de tableau json
 
             $this->_db->commit();
         } catch (PDOException $e) {
@@ -47,22 +44,46 @@ class ProduitBD extends Produit
         }
     }
 
-    public function getProduitsByCat($id_cat)
+    public function getProduitById2($id_prod)
     {
         try {
-            $query = "select * from vue_produits_cat where id_cat = :id_cat";
-            $_resultset = $this->_db->prepare($query);
-            $_resultset->bindValue(':id_cat', $id_cat);
-            $_resultset->execute();
+            $this->_db->beginTransaction();
+            $query = "select * from vue_produits_const_cat where id_prod = :id_prod";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(':id_prod', $id_prod);
+            $resultset->execute();
+            $data = $resultset->fetch();
+            return $data;
 
-            while ($d = $_resultset->fetch()) {
-                $_data[] = new Produit($d);
-            }
-            return $_data;
 
+            $this->_db->commit();
         } catch (PDOException $e) {
-            print "Echec de la requête " . $e->getMessage();
+            print "Echec de la requête : " . $e->getMessage();
+            $_db->rollback();
         }
     }
 
+
+    public function mise_a_jourProduit($id){
+
+    }
+
+    public function ajoutProduit(){
+
+    }
+
+    public function supprimerProduit($id_prod)
+    {
+        try {
+
+            $query = "delete from pgi_produits where id_prod = :id_prod";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(':id_prod', $id_prod);
+            $resultset->execute();
+
+            print "<br>Le produit a bien été supprimé<br><br>";
+        } catch (PDOException $e) {
+            print "<br>Le produit n'a pas été supprimé<br><br>";
+        }
+    }
 }

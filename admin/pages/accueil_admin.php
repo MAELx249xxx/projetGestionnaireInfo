@@ -1,4 +1,6 @@
-<h2>Accueil Admin</h2>
+<p>&nbsp;</p>
+<h1 class="h1">Acceuil Admin</h1>
+<p>&nbsp;</p>
 
 <?php
 if (isset($_POST['submit'])) {
@@ -30,5 +32,5 @@ if (isset($_POST['submit'])) {
         <label for="password" class="form-label">Mot de passe</label>
         <input type="password" class="form-control" id="password" name="password">
     </div>
-    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+    <button type="submit" class="btn btn-primary" name="submit">Se connecter</button>
 </form>

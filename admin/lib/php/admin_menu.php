@@ -11,23 +11,51 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Crud des produits
+                        Produits
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="index_.php?page=ajout_produit.php">Ajout</a></li>
-                        <li><a class="dropdown-item" href="index_.php?page=modif_produit.php">Modification</a></li>
-                        <li><a class="dropdown-item" href="index_.php?page=supp_produit.php">Suppression</a></li>
+                        <li><a class="dropdown-item" href="index_.php?page=ajout_modif_supp_produit.php">Ajout / Modification / Suppression</a></li>
+                        <li><a class="dropdown-item" href="index_.php?page=liste_produits.php">Liste des produits</a></li>
                     </ul>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Crud des utilisateurs
+                        Utilisateurs
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="index_.php?page=ajout_utilisateur.php">Ajout</a></li>
-                        <li><a class="dropdown-item" href="index_.php?page=modif_utilisateur.php">Modification</a></li>
-                        <li><a class="dropdown-item" href="index_.php?page=supp_utilisateur.php">Suppression</a></li>
+                        <li><a class="dropdown-item" href="index_.php?page=ajout_modif_supp_utilisateur.php">Ajout / Modification / Suppression</a></li>
+                        <li><a class="dropdown-item" href="index_.php?page=liste_utilisateurs.php">Liste des utilisateurs</a></li>
+                    </ul>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Admins
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="index_.php?page=ajout_modif_supp_admin.php">Ajout / Modification / Suppression</a></li>
+                        <li><a class="dropdown-item" href="index_.php?page=liste_admins.php">Liste des admins</a></li>
+                    </ul>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Constructeurs
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="index_.php?page=ajout_const.php">Ajout</a></li>
+                        <li><a class="dropdown-item" href="index_.php?page=liste_consts.php">Liste des constructeurs</a></li>
+                    </ul>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Catégories
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="index_.php?page=ajout_cat.php">Ajout</a></li>
+                        <li><a class="dropdown-item" href="index_.php?page=liste_cats.php">Liste des catégories</a></li>
                     </ul>
             </ul>
         </div>
