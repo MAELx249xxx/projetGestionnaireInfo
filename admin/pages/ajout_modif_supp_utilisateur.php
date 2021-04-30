@@ -27,10 +27,16 @@ if (isset($_SESSION['admin'])) {
 
     ?>
 
+    <p> Pour la référence, si vous voulez modifier ou supprimer un utilisateur. Entrez la référence de l'utilisateur recherché.</p>
+    <p> Si vous voulez enregistrer un nouvel utilisateur. Entrez une référence ne se trouvant pas encore dans la base de donnée.</p>
+    <br>
+    <br>
+
     <form class="row g-3" action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
         <div class="col-md-2">
-            <label for="referenceutilisateur" class="form-label">Référence</label>
-            <input type="text" class="form-control" id="referenceutilisateur" name="referenceutilisateur">
+            <label for="loginutilisateur" class="form-label">Login</label>
+            <input type="text" class="form-control" id="loginutilisateur" name="loginutilisateur"
+                   placeholder="1 ou A1 ou autre">
         </div>
         <div class="col-md-2">
             <label for="nom_utili" class="form-label">Nom</label>
@@ -39,10 +45,6 @@ if (isset($_SESSION['admin'])) {
         <div class="col-2">
             <label for="prenom" class="form-label">Prénom</label>
             <input type="text" class="form-control" id="prenom" name="prenom">
-        </div>
-        <div class="col-md-2">
-            <label for="login" class="form-label">Login</label>
-            <input type="text" class="form-control" id="login" name="login">
         </div>
         <div class="col-md-2">
             <label for="password" class="form-label">Mot de passe</label>

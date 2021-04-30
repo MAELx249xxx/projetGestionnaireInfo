@@ -11,6 +11,6 @@ $cnx = Connexion::getInstance($dsn,$user,$password);
 $ut = array();
 $utili = new UtilisateurBD($cnx);
 
-$ut[] = $utili->getUtilisateurByReference($_GET['reference']);
+$ut[] = $utili->getUtilisateurByLogin($_GET['loginutilisateur']);
 
 print json_encode($ut);

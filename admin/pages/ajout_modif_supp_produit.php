@@ -12,6 +12,7 @@ if (isset($_SESSION['admin'])) {
     <?php
     $produit = new ProduitBD($cnx);
 
+
     if (isset($_GET['editer'])) {
         extract($_GET, EXTR_OVERWRITE);
         $prod = $produit->mise_a_jourProduit($id_prod);
@@ -28,10 +29,19 @@ if (isset($_SESSION['admin'])) {
 
     ?>
 
+    <p>Avant d'enregistrer un nouveau produit, veuillez vérifier que la catégorie et le constructeur que vous voulez enregistrer pour ce produit soient dans la base de données</p>
+    <p>Pour ce faire, aller dans le menu en haut de la page et déroulez le menu 'Catégories' ou menu 'Constructeurs' et ensuite 'liste des catégories' ou 'liste des constructeurs' </p>
+
+    <br>
+    <p> Pour la référence, si vous voulez modifier ou supprimer un produit. Entrez la référence du produit recherché.</p>
+    <p> Si vous voulez enregistrer un nouveau produit. Entrez une référence ne se trouvant pas encore dans la base de donnée.</p>
+    <br>
+    <br>
+
     <form class="row g-3" action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
         <div class="col-md-2">
             <label for="referenceproduit" class="form-label">Référence</label>
-            <input type="text" class="form-control" id="referenceproduit" name="referenceproduit">
+            <input type="text" class="form-control" id="referenceproduit" name="referenceproduit" placeholder="1 ou A1 ou autre">
         </div>
         <div class="col-md-6">
             <label for="nom_prod" class="form-label">Dénomination</label>

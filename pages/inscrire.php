@@ -4,13 +4,6 @@
 
 <?php
 $utilisateur = new UtilisateurBD($cnx);
-$liste = $utilisateur->getAllUtilisateur();
-$nbr = count($liste);
-$nbr = $nbr+1;
-
-print "Veuillez entrer le numéro ".$nbr." dans la case en dessous du mot 'Référence'.<br><br>";
-
-$utilisateur = new UtilisateurBD($cnx);
 
 if (isset($_GET['inserer'])) {
     $prod = $utilisateur->ajoutUtilisateur();
@@ -20,8 +13,8 @@ if (isset($_GET['inserer'])) {
 
 <form class="row g-3" action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
     <div class="col-md-2">
-        <label for="referenceutilisateur" class="form-label">Référence</label>
-        <input type="text" class="form-control" id="referenceutilisateur" name="referenceutilisateur">
+        <label for="login" class="form-label">Login</label>
+        <input type="text" class="form-control" id="login" name="login">
     </div>
     <div class="col-md-2">
         <label for="nom_utili" class="form-label">Nom</label>
@@ -30,10 +23,6 @@ if (isset($_GET['inserer'])) {
     <div class="col-2">
         <label for="prenom" class="form-label">Prénom</label>
         <input type="text" class="form-control" id="prenom" name="prenom">
-    </div>
-    <div class="col-md-2">
-        <label for="login" class="form-label">Login</label>
-        <input type="text" class="form-control" id="login" name="login">
     </div>
     <div class="col-md-2">
         <label for="password" class="form-label">Mot de passe</label>

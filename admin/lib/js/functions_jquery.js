@@ -9,7 +9,7 @@ $(document).ready(function () {
                 type: 'GET',
                 data: parametre,
                 dataType: 'json',
-                url: './lib/php/ajax/ajaxReferenceProduit.php',
+                url: './lib/php/ajax/AjaxReferenceProduit.php',
                 success: function (data) {
                     console.log(data);
                     $('#nom_prod').val(data[0].nom_prod);
@@ -42,16 +42,16 @@ $(document).ready(function () {
     });
 
 
-    $("#referenceutilisateur").blur(function () {
-        var reference = $(this).val();
+    $("#loginutilisateur").blur(function () {
+        var loginutilisateur = $(this).val();
 
-        if (reference != '') {
-            var parametre = "reference=" + reference;
+        if (loginutilisateur != '') {
+            var parametre = "loginutilisateur=" + loginutilisateur;
             $.ajax({
                 type: 'GET',
                 data: parametre,
                 dataType: 'json',
-                url: './lib/php/ajax/ajaxReferenceUtilisateur.php',
+                url: './lib/php/ajax/AjaxLoginUtilisateur.php',
                 success: function (data) {
                     console.log(data);
                     $('#nom_utili').val(data[0].nom_utili);
@@ -65,7 +65,6 @@ $(document).ready(function () {
                         $('#supprimer').hide();
                     }
                     $('#prenom').val(data[0].prenom);
-                    $('#login').val(data[0].login);
                     $('#password').val(data[0].password);
                     $('#rue').val(data[0].rue);
                     $('#num').val(data[0].num);
@@ -74,11 +73,10 @@ $(document).ready(function () {
                     $('#id_utili').val(data[0].id_utili);
                 }
             });
-            $('#referenceutilisateur').click(function () {
-                $('#referenceutilisateur').val('');
+            $('#loginutilisateur').click(function () {
+                $('#loginutilisateur').val('');
                 $('#nom_utili').val('');
                 $('#prenom').val('');
-                $('#login').val('');
                 $('#password').val('');
                 $('#rue').val('');
                 $('#num').val('');
@@ -98,7 +96,7 @@ $(document).ready(function () {
                 type: 'GET',
                 data: parametre,
                 dataType: 'json',
-                url: './lib/php/ajax/ajaxReferenceAdmin.php',
+                url: './lib/php/ajax/AjaxReferenceAdmin.php',
                 success: function (data) {
                     console.log(data);
                     $('#login').val(data[0].login);
@@ -134,7 +132,7 @@ $(document).ready(function () {
                 type: 'GET',
                 data: parametre,
                 dataType: 'json',
-                url: './lib/php/ajax/ajaxReferenceConst.php',
+                url: './lib/php/ajax/AjaxReferenceConst.php',
                 success: function (data) {
                     console.log(data);
                     $('#nom_const').val(data[0].nom_const);
@@ -167,7 +165,7 @@ $(document).ready(function () {
                 type: 'GET',
                 data: parametre,
                 dataType: 'json',
-                url: './lib/php/ajax/ajaxReferenceCat.php',
+                url: './lib/php/ajax/AjaxReferenceCat.php',
                 success: function (data) {
                     console.log(data);
                     $('#nom_cat').val(data[0].nom_cat);
@@ -207,29 +205,28 @@ $(document).ready(function () {
         });
     });
 
-    $("#referenceutilisateur2").blur(function () {
-        var reference = $(this).val();
+    $('#loginutilisateur2').ready(function (){
+        var loginutilisateur2 = $.trim($('#loginutilisateur2').val());
+        var parametre = 'loginutilisateur2='+loginutilisateur2;
 
-        if (reference != '') {
-            var parametre = "reference=" + reference;
-            $.ajax({
-                type: 'GET',
-                data: parametre,
-                dataType: 'json',
-                url: './admin/lib/php/ajax/ajaxReferenceUtilisateur.php',
-                success: function (data) {
-                    console.log(data);
-                    $('#nom_utili2').val(data[0].nom_utili);
-                    $('#prenom2').val(data[0].prenom);
-                    $('#login2').val(data[0].login);
-                    $('#password2').val(data[0].password);
-                    $('#rue2').val(data[0].rue);
-                    $('#num2').val(data[0].num);
-                    $('#pays2').val(data[0].pays);
-                    $('#ville2').val(data[0].ville);
-                    $('#id_utili2').val(data[0].id_utili);
-                }
-            });
-        }
+        $.ajax({
+            type: 'GET',
+            data: parametre,
+            dataType: 'json',
+            url: './admin/lib/php/ajax/AjaxLoginUtilisateur2.php',
+            success: function (data) {
+                console.log(data);
+                $('#nom_utili2').val(data[0].nom_utili);
+                $('#prenom2').val(data[0].prenom);
+                $('#password2').val(data[0].password);
+                $('#rue2').val(data[0].rue);
+                $('#num2').val(data[0].num);
+                $('#pays2').val(data[0].pays);
+                $('#ville2').val(data[0].ville);
+                $('#id_utili2').val(data[0].id_utili);
+
+            }
+        })
     });
+
 });

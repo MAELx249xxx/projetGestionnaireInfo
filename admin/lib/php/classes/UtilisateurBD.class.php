@@ -25,13 +25,13 @@ class UtilisateurBD extends Utilisateur {
         return $_data;
     }
 
-    public function getUtilisateurByReference($reference)
+    public function getUtilisateurByLogin($login)
     {
         try {
             $this->_db->beginTransaction();
-            $query = "select * from pgi_utilisateurs where reference = :reference";
+            $query = "select * from pgi_utilisateurs where login = :login";
             $resultset = $this->_db->prepare($query);
-            $resultset->bindValue(':reference', $reference);
+            $resultset->bindValue(':login', $login);
             $resultset->execute();
             $data = $resultset->fetch();
             return $data;
@@ -55,6 +55,23 @@ class UtilisateurBD extends Utilisateur {
             print "<br>L'utilisateur a bien été supprimé<br><br>";
         } catch (PDOException $e) {
             print "<br>L'utilisateur n'a pas été supprimé<br><br>";
+        }
+    }
+
+
+    public function getUti($login, $password)
+    {
+        try {
+            $query = "SELECT is_uti(:login,:password) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':login', $login);
+            $_resultset->bindValue(':password', $password);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
+            return $retour;
+            return $_data;
+        } catch (PDOException $e) {
+            print "Erreur : " . $e->getMessage();
         }
     }
 

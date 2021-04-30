@@ -11,6 +11,12 @@ if (isset($_SESSION['admin'])) {
 
     <?php
     $cat = new CategorieBD($cnx);
+    $liste = $cat->getAllCat();
+    $nbr = count($liste);
+
+    $nbr = $nbr+1;
+
+    print "Veuillez entrer '".$nbr. "' dans la rubrique 'Référence'. <br><br>";
 
     if (isset($_GET['inserer'])) {
         $cate = $cat->ajoutCategorie();

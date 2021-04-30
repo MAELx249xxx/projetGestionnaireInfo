@@ -28,10 +28,15 @@ if (isset($_SESSION['admin'])) {
 
     ?>
 
+    <p> Pour la référence, si vous voulez modifier ou supprimer un admin. Entrez la référence de l'admin recherché.</p>
+    <p> Si vous voulez enregistrer un nouvel admin. Entrez une référence ne se trouvant pas encore dans la base de donnée.</p>
+    <br>
+    <br>
+
     <form class="row g-3" action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
         <div class="col-md-2">
             <label for="referenceadmin" class="form-label">Référence</label>
-            <input type="text" class="form-control" id="referenceadmin" name="referenceadmin">
+            <input type="text" class="form-control" id="referenceadmin" name="referenceadmin" placeholder="1 ou A1 ou autre">
         </div>
         <div class="col-md-2">
             <label for="login" class="form-label">Identifiant</label>

@@ -14,8 +14,8 @@ if (isset($_GET['editer'])) {
 
 <form class="row g-3" action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
     <div class="col-md-2">
-        <label for="referenceutilisateur2" class="form-label">Référence</label>
-        <input type="text" class="form-control" id="referenceutilisateur2" name="referenceutilisateur2">
+        <label for="loginutilisateur2" class="form-label">Login</label>
+        <input type="text" class="form-control" id="loginutilisateur2" name="loginutilisateur2" value="<?php print $_SESSION['login']; ?>">
     </div>
     <div class="col-md-2">
         <label for="nom_utili2" class="form-label">Nom</label>
@@ -24,10 +24,6 @@ if (isset($_GET['editer'])) {
     <div class="col-2">
         <label for="prenom2" class="form-label">Prénom</label>
         <input type="text" class="form-control" id="prenom2" name="prenom2">
-    </div>
-    <div class="col-md-2">
-        <label for="login2" class="form-label">Login</label>
-        <input type="text" class="form-control" id="login2" name="login2">
     </div>
     <div class="col-md-2">
         <label for="password2" class="form-label">Mot de passe</label>

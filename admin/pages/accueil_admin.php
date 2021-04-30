@@ -1,5 +1,5 @@
 <p>&nbsp;</p>
-<h1 class="h1">Acceuil Admin</h1>
+<h1 class="h1">Accueil Admin</h1>
 <p>&nbsp;</p>
 
 <?php
@@ -8,14 +8,25 @@ if (isset($_POST['submit'])) {
 
     $ad = new AdminBD($cnx);
     $admin = $ad->getAdmin($login,$password);
+
     if($admin){
         $_SESSION['admin']=1;
-        print "Vous êtes connecté en tant qu'admin, vous pouvez maintenant gérer les produits et les utilisateurs !!!";
+        $_SESSION['login2'] = $login;
+
+        print "La page va se raffraichir sous peu et vous pourrez naviguer et gérer les différentes tables de la BD !!!";
+        ?>
+        <meta http-equiv="refresh": content="3;URL=index_.php">
+        <?php
     }else{
         $message =  "Identifiants incorrects";
     }
 }
 ?>
+
+<?php
+if (!isset($_SESSION['admin'])) {
+
+    ?>
 
 <p class=""><?php
     if(isset($message)){
@@ -34,3 +45,16 @@ if (isset($_POST['submit'])) {
     </div>
     <button type="submit" class="btn btn-primary" name="submit">Se connecter</button>
 </form>
+
+    <?php
+}
+?>
+
+
+<?php
+if (isset($_SESSION['admin'])) {
+
+
+    print "Vous êtes bien connecté " .$_SESSION['login2']. ".";
+}
+?>

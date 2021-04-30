@@ -11,6 +11,12 @@ if (isset($_SESSION['admin'])) {
 
     <?php
     $const = new ConstructeurBD($cnx);
+    $liste = $const->getAllConstructeur();
+    $nbr = count($liste);
+
+    $nbr = $nbr+1;
+
+    print "Veuillez entrer '".$nbr. "' dans la rubrique 'Référence'. <br><br>";
 
     if (isset($_GET['inserer'])) {
         $cons = $const->ajoutConstructeur();
@@ -22,7 +28,7 @@ if (isset($_SESSION['admin'])) {
     <form class="row g-3" action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
         <div class="col-md-2">
             <label for="referenceconst" class="form-label">Référence</label>
-            <input type="text" class="form-control" id="referenceconst" name="referenceconst">
+            <input type="text" class="form-control" id="referenceconst" name="referenceconst" placeholder="A1 ou 1">
         </div>
         <div class="col-md-2">
             <label for="nom_const" class="form-label">Nom du constructeur</label>
