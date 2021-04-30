@@ -64,26 +64,27 @@ class ProduitBD extends Produit
     }
 
 
-    public function mise_a_jourProduit($id){
+    public function mise_a_jourProduit($id)
+    {
 
     }
 
-    public function ajoutProduit(){
+    public function ajoutProduit()
+    {
 
     }
 
     public function supprimerProduit($id_prod)
     {
         try {
-
-            $query = "delete from pgi_produits where id_prod = :id_prod";
+            $query = "SELECT supp_produit(:id_prod) as retour";
             $resultset = $this->_db->prepare($query);
             $resultset->bindValue(':id_prod', $id_prod);
             $resultset->execute();
 
-            print "<br>Le produit a bien été supprimé<br><br>";
+            print  "Le produit a bien été supprimé<br><br>";
         } catch (PDOException $e) {
-            print "<br>Le produit n'a pas été supprimé<br><br>";
+            print  "Le produit n'a pas été supprimé<br><br>";
         }
     }
 }

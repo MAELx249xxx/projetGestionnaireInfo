@@ -29,7 +29,7 @@ if (isset($_SESSION['admin'])) {
     ?>
 
     <p> Pour la référence, si vous voulez modifier ou supprimer un admin. Entrez la référence de l'admin recherché.</p>
-    <p> Si vous voulez enregistrer un nouvel admin. Entrez une référence ne se trouvant pas encore dans la base de donnée.</p>
+    <p> Si vous voulez enregistrer un nouvel admin. Entrez une référence ne se trouvant pas encore dans la base de données.</p>
     <br>
     <br>
 

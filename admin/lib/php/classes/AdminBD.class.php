@@ -25,22 +25,6 @@ class AdminBD extends Admin
         return $_data;
     }
 
-    public function getAdmin($login, $password)
-    {
-        try {
-            $query = "SELECT is_admin(:login,:password) as retour";
-            $_resultset = $this->_db->prepare($query);
-            $_resultset->bindValue(':login', $login);
-            $_resultset->bindValue(':password', $password);
-            $_resultset->execute();
-            $retour = $_resultset->fetchColumn(0);
-            return $retour;
-            return $_data;
-        } catch (PDOException $e) {
-            print "Erreur : " . $e->getMessage();
-        }
-    }
-
     public function getAdminByReference($reference)
     {
         try {
@@ -59,12 +43,28 @@ class AdminBD extends Admin
         }
     }
 
+    public function getAdmin($login, $password)
+    {
+        try {
+            $query = "SELECT is_admin(:login,:password) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':login', $login);
+            $_resultset->bindValue(':password', $password);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
+            return $retour;
+            return $_data;
+        } catch (PDOException $e) {
+            print "Erreur : " . $e->getMessage();
+        }
+    }
+
 
     public function supprimerAdmin($id_admin)
     {
         try {
 
-            $query = "delete from pgi_admins where id_admin = :id_admin";
+            $query = "SELECT supp_admin(:id_admin) as retour";
             $resultset = $this->_db->prepare($query);
             $resultset->bindValue(':id_admin', $id_admin);
             $resultset->execute();

@@ -29,12 +29,20 @@ if (isset($_SESSION['admin'])) {
 
     ?>
 
-    <p>Avant d'enregistrer un nouveau produit, veuillez vérifier que la catégorie et le constructeur que vous voulez enregistrer pour ce produit soient dans la base de données</p>
-    <p>Pour ce faire, aller dans le menu en haut de la page et déroulez le menu 'Catégories' ou menu 'Constructeurs' et ensuite 'liste des catégories' ou 'liste des constructeurs' </p>
+    <p>Avant d'enregistrer un nouveau produit, veuillez vérifier que la catégorie et le constructeur que vous voulez enregistrer pour ce produit soient dans la base de données.</p>
+    <p>Pour ce faire, aller dans le menu en haut de la page et déroulez le menu 'Catégories' ou menu 'Constructeurs' et ensuite 'liste des catégories' ou 'liste des constructeurs'.</p>
+    <p>Vous pouvez également utiliser les liens ici dessous.</p>
+    <a href="index_.php?page=liste_consts.php">Lien vers la liste des constucteurs.</a><br>
+    <a href="index_.php?page=liste_cats.php">Lien vers la liste des catégories.</a><br><br>
+
+    <p>Si ils y sont, vous pouvez revenir ici. Si pas, je vous invite à les ajouter en utilisant les ajouts des "constructeurs" et "catégories" se trouvant dans les menus y apparantant.</p>
+    <p>Vous pouvez également utiliser les liens ici dessous.</p>
+    <a href="index_.php?page=ajout_const.php">Lien vers l'ajout d'un constructeur.</a><br>
+    <a href="index_.php?page=ajout_cat.php">Lien vers l'ajout d'une catégorie.</a><br>
 
     <br>
     <p> Pour la référence, si vous voulez modifier ou supprimer un produit. Entrez la référence du produit recherché.</p>
-    <p> Si vous voulez enregistrer un nouveau produit. Entrez une référence ne se trouvant pas encore dans la base de donnée.</p>
+    <p> Si vous voulez enregistrer un nouveau produit. Entrez une référence ne se trouvant pas encore dans la base de données.</p>
     <br>
     <br>
 

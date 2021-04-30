@@ -27,8 +27,8 @@ if (isset($_SESSION['admin'])) {
 
     ?>
 
-    <p> Pour la référence, si vous voulez modifier ou supprimer un utilisateur. Entrez la référence de l'utilisateur recherché.</p>
-    <p> Si vous voulez enregistrer un nouvel utilisateur. Entrez une référence ne se trouvant pas encore dans la base de donnée.</p>
+    <p> Pour le login, si vous voulez modifier ou supprimer un utilisateur. Entrez le login de l'utilisateur recherché.</p>
+    <p> Si vous voulez enregistrer un nouvel utilisateur. Entrez un login ne se trouvant pas encore dans la base de données.</p>
     <br>
     <br>
 
