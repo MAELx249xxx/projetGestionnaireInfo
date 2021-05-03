@@ -31,8 +31,7 @@ if (isset($_SESSION['admin'])) {
                             Utilisateurs
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="index_.php?page=ajout_modif_supp_utilisateur.php">Ajout /
-                                    Modification / Suppression</a></li>
+                            <li><a class="dropdown-item" href="index_.php?page=supp_utilisateur.php">Suppression</a></li>
                             <li><a class="dropdown-item" href="index_.php?page=liste_utilisateurs.php">Liste des
                                     utilisateurs</a></li>
                         </ul>

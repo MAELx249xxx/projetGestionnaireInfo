@@ -56,12 +56,8 @@ $(document).ready(function () {
                     console.log(data);
                     $('#nom_utili').val(data[0].nom_utili);
                     if ($('#nom_utili').val() != '') {
-                        $('#inserer').hide();
-                        $('#editer').show();
                         $('#supprimer').show();
                     } else {
-                        $('#editer').hide();
-                        $('#inserer').show();
                         $('#supprimer').hide();
                     }
                     $('#prenom').val(data[0].prenom);

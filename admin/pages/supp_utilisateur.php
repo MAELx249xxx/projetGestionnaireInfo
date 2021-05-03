@@ -5,20 +5,11 @@ if (isset($_SESSION['admin'])) {
     ?>
 
     <p>&nbsp;</p>
-    <h1 class="h1">Ajouter / Modifier / Supprimer un utilisateur</h1>
+    <h1 class="h1">Supprimer un utilisateur</h1>
     <p>&nbsp;</p>
 
     <?php
     $utilisateur = new UtilisateurBD($cnx);
-
-    if (isset($_GET['editer'])) {
-        extract($_GET, EXTR_OVERWRITE);
-        $utili = $utilisateur->mise_a_jourUtilisateur($id_utili);
-    }
-
-    if (isset($_GET['inserer'])) {
-        $prod = $utilisateur->ajoutUtilisateur();
-    }
 
     if (isset($_GET['supprimer'])) {
         extract($_GET, EXTR_OVERWRITE);
@@ -27,8 +18,7 @@ if (isset($_SESSION['admin'])) {
 
     ?>
 
-    <p> Pour le login, si vous voulez modifier ou supprimer un utilisateur. Entrez le login de l'utilisateur recherché.</p>
-    <p> Si vous voulez enregistrer un nouvel utilisateur. Entrez un login ne se trouvant pas encore dans la base de données.</p>
+    <p> Pour le login, si vous voulez  supprimer un utilisateur. Entrez le login de l'utilisateur recherché.</p>
     <br>
     <br>
 
@@ -69,8 +59,6 @@ if (isset($_SESSION['admin'])) {
 
         <div class="col-12">
             <input type="hidden" name="id_utili" id="id_utili">
-            <button type="submit" class="btn btn-primary" id="editer" name="editer">Mettre à jour</button>
-            <button type="submit" class="btn btn-primary" id="inserer" name="inserer">Enregistrer</button>
             <button type="submit" class="btn btn-primary" id="supprimer" name="supprimer">Supprimer</button>
         </div>
     </form>
