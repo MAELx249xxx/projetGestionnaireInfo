@@ -14,11 +14,14 @@ if (isset($_SESSION['admin'])) {
     if (isset($_GET['supprimer'])) {
         extract($_GET, EXTR_OVERWRITE);
         $utili = $utilisateur->supprimerUtilisateur($id_utili);
+
     }
 
     ?>
 
-    <p> Pour le login, si vous voulez  supprimer un utilisateur. Entrez le login de l'utilisateur recherché.</p>
+    <p>Pour le login, si vous voulez  supprimer un utilisateur. Entrez le login de l'utilisateur recherché.</p>
+    <p>Pour vous aidez à trouver le login, une liste se trouve en bas de page !!!</p>
+    <p>La suppression est une action irréversible !!!</p>
     <br>
     <br>
 
@@ -26,7 +29,7 @@ if (isset($_SESSION['admin'])) {
         <div class="col-md-2">
             <label for="loginutilisateur" class="form-label">Login</label>
             <input type="text" class="form-control" id="loginutilisateur" name="loginutilisateur"
-                   placeholder="1 ou A1 ou autre">
+                   placeholder="exemple: Maelx249">
         </div>
         <div class="col-md-2">
             <label for="nom_utili" class="form-label">Nom</label>
@@ -63,6 +66,10 @@ if (isset($_SESSION['admin'])) {
         </div>
     </form>
 
+    <br>
+    <br>
     <?php
+
+    include('liste_utilisateurs.php');
 }
 ?>

@@ -31,7 +31,7 @@
 
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="index_.php?page=modif_info.php">Modifier ses informations</a>
+                        <a class="nav-link" href="index_.php?page=modif_info_supp_compte.php">Modifier ses informations ou supprimer son compte</a>
                     </li>
                     <?php
                 }

@@ -1,6 +1,7 @@
 <?php
 
-class UtilisateurBD extends Utilisateur {
+class UtilisateurBD extends Utilisateur
+{
 
     private $_db;
     private $_data = array();
@@ -51,9 +52,9 @@ class UtilisateurBD extends Utilisateur {
             $resultset->bindValue(':id_utili', $id_utili);
             $resultset->execute();
 
-            print  "L'utilisateur a bien été supprimé<br><br>";
+            print  "<br><br>L'utilisateur a bien été supprimé<br><br>";
         } catch (PDOException $e) {
-            print  "L'utilisateur n'a pas été supprimé<br><br>";
+            print  "<br><br>L'utilisateur n'a pas été supprimé<br><br>";
         }
     }
 
@@ -71,6 +72,58 @@ class UtilisateurBD extends Utilisateur {
             return $_data;
         } catch (PDOException $e) {
             print "Erreur : " . $e->getMessage();
+        }
+    }
+
+    public function majUtilisateur($id,$login,$nom,$prenom,$password,$rue,$num,$pays,$ville)
+    {
+        try {
+            $query = "SELECT modif_utili(:id_utili,:nom_utili,:prenom,:login,:password,:rue,:num,:pays,:ville) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':id_utili', $id);
+            $_resultset->bindValue(':nom_utili', $nom);
+            $_resultset->bindValue(':prenom', $prenom);
+            $_resultset->bindValue(':login', $login);
+            $_resultset->bindValue(':password', $password);
+            $_resultset->bindValue(':rue', $rue);
+            $_resultset->bindValue(':num', $num);
+            $_resultset->bindValue(':pays', $pays);
+            $_resultset->bindValue(':ville', $ville);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
+
+
+            if($retour==1){
+                session_start();
+                unset($_SESSION['login']);
+                $_SESSION['login']=$login;
+            }
+            return $retour;
+
+        } catch (PDOException $e) {
+            print "Erreur : " . $e->getMessage();
+        }
+    }
+
+    public function ajoutUtilisateur($login,$nom,$prenom,$password,$rue,$num,$pays,$ville)
+    {
+        try {
+            $query = "SELECT ajout_utili(:nom_utili,:prenom,:login,:password,:rue,:num,:pays,:ville) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':nom_utili', $nom);
+            $_resultset->bindValue(':prenom', $prenom);
+            $_resultset->bindValue(':login', $login);
+            $_resultset->bindValue(':password', $password);
+            $_resultset->bindValue(':rue', $rue);
+            $_resultset->bindValue(':num', $num);
+            $_resultset->bindValue(':pays', $pays);
+            $_resultset->bindValue(':ville', $ville);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
+
+            return $retour;
+
+        } catch (PDOException $e) {
         }
     }
 

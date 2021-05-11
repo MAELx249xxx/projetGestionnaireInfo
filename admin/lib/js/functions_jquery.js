@@ -15,17 +15,17 @@ $(document).ready(function () {
                     $('#nom_prod').val(data[0].nom_prod);
                     if ($('#nom_prod').val() != '') {
                         $('#inserer').hide();
-                        $('#editer').show();
+                        $('#editer_prod').show();
                         $('#supprimer').show();
                     } else {
-                        $('#editer').hide();
+                        $('#editer_prod').hide();
                         $('#inserer').show();
                         $('#supprimer').hide();
                     }
                     $('#prix').val(data[0].prix);
                     $('#annee_prod').val(data[0].annee_prod);
-                    $('#id_const').val(data[0].id_const);
-                    $('#id_cat').val(data[0].id_cat);
+                    $('#choix_categorie').val(data[0].id_cat);
+                    $('#choix_constructeur').val(data[0].id_const);
                     $('#id_prod').val(data[0].id_prod);
                 }
             });
@@ -34,8 +34,8 @@ $(document).ready(function () {
                 $('#nom_prod').val('');
                 $('#prix').val('');
                 $('#annee_prod').val('');
-                $('#id_const').val('');
-                $('#id_cat').val('');
+                $('#choix_categorie').val('');
+                $('#choix_constructeur').val('');
                 $('#id_prod').val('');
             });
         }
@@ -98,10 +98,10 @@ $(document).ready(function () {
                     $('#login').val(data[0].login);
                     if ($('#login').val() != '') {
                         $('#inserer').hide();
-                        $('#editer').show();
+                        $('#editer_admin').show();
                         $('#supprimer').show();
                     } else {
-                        $('#editer').hide();
+                        $('#editer_admin').hide();
                         $('#inserer').show();
                         $('#supprimer').hide();
                     }
@@ -223,6 +223,74 @@ $(document).ready(function () {
 
             }
         })
+    });
+
+    $('#editer_uti').click(function (){
+        var id_utili = $.trim($('#id_utili2').val());
+        var login = $.trim($('#loginutilisateur2').val());
+        var nom = $.trim($('#nom_utili2').val());
+        var prenom = $.trim($('#prenom2').val());
+        var password = $.trim($('#password2').val());
+        var rue = $.trim($('#rue2').val());
+        var num = $.trim($('#num2').val());
+        var pays = $.trim($('#pays2').val());
+        var ville = $.trim($('#ville2').val());
+
+        var parametre = 'id_utili='+id_utili+'&login='+login+'&nom='+nom+'&prenom='+prenom+'&password='+password+'&rue='+rue+'&num='+num+'&pays='+pays+'&ville='+ville;
+
+        $.ajax({
+            type:'GET',
+            data: parametre,
+            dataType: 'json',
+            url: 'admin/lib/php/ajax/ajaxUpdateUtilisateur.php',
+            success: function (data){
+                console.log(data);
+            }
+        });
+        setTimeout(function(){location.reload()}, 500);
+    });
+
+    $('#editer_admin').click(function (){
+        var id_admin = $.trim($('#id_admin').val());
+        var login = $.trim($('#login').val());
+        var password = $.trim($('#password').val());
+        var reference = $.trim($('#referenceadmin').val());
+
+        var parametre = 'id_admin='+id_admin+'&login='+login+'&password='+password+'&reference='+reference;
+
+        $.ajax({
+            type:'GET',
+            data: parametre,
+            dataType: 'json',
+            url: './lib/php/ajax/ajaxUpdateAdmin.php',
+            success: function (data){
+                console.log(data);
+            }
+        });
+        setTimeout(function(){location.reload()}, 500);
+    });
+
+    $('#editer_prod').click(function (){
+        var id_prod = $.trim($('#id_prod').val());
+        var nom_prod = $.trim($('#nom_prod').val());
+        var prix = $.trim($('#prix').val());
+        var annee_prod = $.trim($('#annee_prod').val());
+        var id_const = $.trim($('#choix_constructeur').val());
+        var id_cat = $.trim($('#choix_categorie').val());
+        var reference = $.trim($('#referenceproduit').val());
+
+        var parametre = 'id_prod='+id_prod+'&nom_prod='+nom_prod+'&prix='+prix+'&annee_prod='+annee_prod+'&id_const='+id_const+'&id_cat='+id_cat+'&reference='+reference;
+
+        $.ajax({
+            type:'GET',
+            data: parametre,
+            dataType: 'json',
+            url: './lib/php/ajax/ajaxUpdateProduit.php',
+            success: function (data){
+                console.log(data);
+            }
+        });
+        setTimeout(function(){location.reload()}, 500);
     });
 
 });

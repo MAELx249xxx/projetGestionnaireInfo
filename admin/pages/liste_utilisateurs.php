@@ -22,7 +22,6 @@ if(isset($_SESSION['admin'])){
         <th scope="col">Numéro</th>
         <th scope="col">Pays</th>
         <th scope="col">Ville</th>
-        <th scope="col">Numéro de référence</th>
     </tr>
     </thead>
     <tbody>
@@ -74,11 +73,6 @@ if(isset($_SESSION['admin'])){
             <td>
                 <span name="ville" id="<?php print $liste[$i]->id_utili; ?>">
                     <?php print $liste[$i]->ville; ?>
-                </span>
-            </td>
-            <td>
-                <span name="reference" id="<?php print $liste[$i]->id_utili; ?>">
-                    <?php print $liste[$i]->reference; ?>
                 </span>
             </td>
         </tr>

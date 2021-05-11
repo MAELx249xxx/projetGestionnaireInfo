@@ -43,6 +43,20 @@ class ConstructeurBD extends Constructeur
         }
     }
 
+    public function ajoutConstructeur($referenceconst,$nom_const,$pays)
+    {
+        try {
+            $query = "SELECT ajout_const(:nom_const,:pays,:reference) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':nom_const', $nom_const);
+            $_resultset->bindValue(':pays', $pays);
+            $_resultset->bindValue(':reference', $referenceconst);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
 
+            return $retour;
 
+        } catch (PDOException $e) {
+        }
+    }
 }

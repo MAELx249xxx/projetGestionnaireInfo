@@ -9,6 +9,8 @@ if (isset($_SESSION['admin'])) {
     <h1 class="h1">Ajouter une catégorie</h1>
     <p>&nbsp;</p>
 
+    <p>Pour vous aider à voir si la catégorie que vous voulez encodé est déjà encodée, il y a une liste en fin de page.</p>
+
     <?php
     $cat = new CategorieBD($cnx);
     $liste = $cat->getAllCat();
@@ -16,10 +18,18 @@ if (isset($_SESSION['admin'])) {
 
     $nbr = $nbr+1;
 
-    print "Veuillez entrer '".$nbr. "' dans la rubrique 'Référence'. <br><br>";
+    print "Pour entrer un nouvelle catégorie, veuillez entrer '".$nbr. "' dans la rubrique 'Référence'. <br><br>";
 
     if (isset($_GET['inserer'])) {
-        $cate = $cat->ajoutCategorie();
+        extract($_GET, EXTR_OVERWRITE);
+        $cate = $cat->ajoutCategorie($referencecat,$nom_cat);
+
+        if($cate==1){
+            print "<br>La catégorie a bien été ajouté !!!<br><br>";
+        }
+        else{
+            print "<br>Veuillez vérifier les informations et réessayer (le nom de la catégorie est déjà encodée dans la base de données) !!!<br><br>";
+        }
     }
 
     ?>
@@ -35,16 +45,11 @@ if (isset($_SESSION['admin'])) {
         </div>
 
         <div class="col-12">
-            <input type="hidden" name="id_cat" id="id_cat">
             <button type="submit" class="btn btn-primary" id="inserer" name="inserer">Enregistrer</button>
         </div>
     </form>
 
-
-    <br>
-    <br>
-    <a href="index_.php?page=ajout_modif_supp_produit.php">Lien vers l'ajout / modification/ suppression d'un produit.</a><br>
-
     <?php
+    include('liste_cats.php');
 }
 ?>

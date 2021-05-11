@@ -5,8 +5,18 @@
 <?php
 $utilisateur = new UtilisateurBD($cnx);
 
-if (isset($_GET['inserer'])) {
-    $prod = $utilisateur->ajoutUtilisateur();
+if (isset($_GET['inserer_uti'])) {
+    extract($_GET, EXTR_OVERWRITE);
+    $utili = $utilisateur->ajoutUtilisateur($login,$nom_utili,$prenom,$password,$rue,$num,$pays,$ville);
+
+    if($utili==1){
+        print "Vous allez être rediriger vers la page de connexion sous peu !!!<br><br>";
+        ?>
+        <meta http-equiv="refresh" : content="2;URL=index_.php?page=se_connecter.php">
+        <?php
+    }else{
+        print "Veuillez enregistrer votre compte avec un autre login !!!<br><br>";
+    }
 }
 
 ?>
@@ -46,6 +56,7 @@ if (isset($_GET['inserer'])) {
     </div>
 
     <div class="col-12">
-        <button type="submit" class="btn btn-primary" id="inserer" name="inserer">Enregistrer</button>
+        <button type="submit" class="btn btn-primary" id="inserer_uti" name="inserer_uti">Enregistrer</button>
     </div>
 </form>
+

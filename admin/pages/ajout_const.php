@@ -9,6 +9,8 @@ if (isset($_SESSION['admin'])) {
     <h1 class="h1">Ajouter un constructeur</h1>
     <p>&nbsp;</p>
 
+    <p>Pour vous aider à voir si le constructeur que vous voulez encodé est déjà encodé, il y a une liste en fin de page.</p>
+
     <?php
     $const = new ConstructeurBD($cnx);
     $liste = $const->getAllConstructeur();
@@ -16,10 +18,18 @@ if (isset($_SESSION['admin'])) {
 
     $nbr = $nbr+1;
 
-    print "Veuillez entrer '".$nbr. "' dans la rubrique 'Référence'. <br><br>";
+    print "Pour entrer un nouveau constructeur, veuillez entrer '".$nbr. "' dans la rubrique 'Référence'. <br><br>";
 
     if (isset($_GET['inserer'])) {
-        $cons = $const->ajoutConstructeur();
+        extract($_GET, EXTR_OVERWRITE);
+        $cons = $const->ajoutConstructeur($referenceconst,$nom_const,$pays);
+
+        if($cons==1){
+            print "<br>Le constructeur a bien été ajouté !!!<br><br>";
+        }
+        else{
+            print "<br>Veuillez vérifier les informations et réessayer (le nom du constructeur est déjà encodé dans la base de données) !!!<br><br>";
+        }
     }
 
 
@@ -40,16 +50,14 @@ if (isset($_SESSION['admin'])) {
         </div>
 
         <div class="col-12">
-            <input type="hidden" name="id_const" id="id_const">
             <button type="submit" class="btn btn-primary" id="inserer" name="inserer">Enregistrer</button>
         </div>
     </form>
 
-    <br>
-    <br>
-
-    <a href="index_.php?page=ajout_modif_supp_produit.php">Lien vers l'ajout / modification/ suppression d'un produit.</a><br>
+    <br><br>
 
     <?php
+
+    include('liste_consts.php');
 }
 ?>

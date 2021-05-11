@@ -63,15 +63,24 @@ class ProduitBD extends Produit
         }
     }
 
-
-    public function mise_a_jourProduit($id)
+    public function ajoutProduit($referenceproduit, $nom_prod, $prix, $annee_prod, $choix_categorie, $choix_constructeur)
     {
+        try {
+            $query = "SELECT ajout_produit(:nom_prod,:prix,:annee_prod,:id_const,:id_cat,:reference) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':nom_prod', $nom_prod);
+            $_resultset->bindValue(':prix', $prix);
+            $_resultset->bindValue(':annee_prod', $annee_prod);
+            $_resultset->bindValue(':id_const', $choix_constructeur);
+            $_resultset->bindValue(':id_cat', $choix_categorie);
+            $_resultset->bindValue(':reference', $referenceproduit);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
 
-    }
+            return $retour;
 
-    public function ajoutProduit()
-    {
-
+        } catch (PDOException $e) {
+        }
     }
 
     public function supprimerProduit($id_prod)
@@ -85,6 +94,27 @@ class ProduitBD extends Produit
             print  "Le produit a bien été supprimé<br><br>";
         } catch (PDOException $e) {
             print  "Le produit n'a pas été supprimé<br><br>";
+        }
+    }
+
+    public function majProduit($id,$nom,$prix,$annee,$id_const,$id_cat,$reference)
+    {
+        try {
+            $query = "SELECT modif_produit(:id_prod,:nom_prod,:prix,:annee_prod,:id_const,:id_cat,:reference) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':id_prod', $id);
+            $_resultset->bindValue(':nom_prod', $nom);
+            $_resultset->bindValue(':prix', $prix);
+            $_resultset->bindValue(':annee_prod', $annee);
+            $_resultset->bindValue(':id_const', $id_const);
+            $_resultset->bindValue(':id_cat', $id_cat);
+            $_resultset->bindValue(':reference', $reference);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
+            return $retour;
+
+        } catch (PDOException $e) {
+            print "Erreur : " . $e->getMessage();
         }
     }
 }

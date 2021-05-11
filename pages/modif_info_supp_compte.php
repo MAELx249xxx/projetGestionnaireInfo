@@ -1,21 +1,31 @@
 <p>&nbsp;</p>
-<h1 class="h1">Modifier les informations du compte</h1>
+<h1 class="h1">Modifier les informations du compte / Suppression du compte</h1>
 <p>&nbsp;</p>
+
 
 <?php
 $utilisateur = new UtilisateurBD($cnx);
 
-if (isset($_GET['editer'])) {
+if (isset($_GET['supprimer'])) {
     extract($_GET, EXTR_OVERWRITE);
-    $utili = $utilisateur->mise_a_jourUtilisateur($id_utili);
+    $utili = $utilisateur->supprimerUtilisateur($id_utili2);
+
+    session_destroy();
+
+    ?>
+    <meta http-equiv="refresh" : content="2;URL=index_.php">
+    <?php
 }
 
 ?>
 
+<p>Supprimer son compte est une action irréversible !!!</p>
+
 <form class="row g-3" action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
     <div class="col-md-2">
         <label for="loginutilisateur2" class="form-label">Login</label>
-        <input type="text" class="form-control" id="loginutilisateur2" name="loginutilisateur2" value="<?php print $_SESSION['login']; ?>">
+        <input type="text" class="form-control" id="loginutilisateur2" name="loginutilisateur2"
+               value="<?php print $_SESSION['login']; ?>">
     </div>
     <div class="col-md-2">
         <label for="nom_utili2" class="form-label">Nom</label>
@@ -48,7 +58,9 @@ if (isset($_GET['editer'])) {
 
     <div class="col-12">
         <input type="hidden" name="id_utili2" id="id_utili2">
-        <button type="submit" class="btn btn-primary" id="editer" name="editer">Mettre à jour</button>
+        <button type="submit" class="btn btn-primary" id="supprimer" name="supprimer">Supprimer le compte</button>
     </div>
 </form>
+
+<button type="submit" class="btn btn-primary" id="editer_uti" name="editer_uti">Mettre à jour</button>
 

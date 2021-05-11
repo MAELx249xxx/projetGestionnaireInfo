@@ -43,6 +43,22 @@ class CategorieBD extends Categorie
         }
     }
 
+    public function ajoutCategorie($referencecat,$nom_cat)
+    {
+        try {
+            $query = "SELECT ajout_cat(:nom_cat,:reference) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':nom_cat', $nom_cat);
+            $_resultset->bindValue(':reference', $referencecat);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
+
+            return $retour;
+
+        } catch (PDOException $e) {
+        }
+    }
+
 
 
 }

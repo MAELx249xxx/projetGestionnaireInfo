@@ -54,6 +54,9 @@ if(isset($_SESSION['admin'])){
     </tbody>
 </table>
 
+    <br>
+    <br>
+
     <a href="index_.php?page=ajout_modif_supp_produit.php">Lien vers l'ajout / modification/ suppression d'un produit.</a><br>
 
     <?php

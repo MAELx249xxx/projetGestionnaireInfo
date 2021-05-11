@@ -75,4 +75,46 @@ class AdminBD extends Admin
         }
     }
 
+
+    public function ajoutAdmin($referenceadmin,$login,$password)
+    {
+        try {
+            $query = "SELECT ajout_admin(:login,:password,:reference) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':login', $login);
+            $_resultset->bindValue(':password', $password);
+            $_resultset->bindValue(':reference', $referenceadmin);
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
+
+            return $retour;
+
+        } catch (PDOException $e) {
+        }
+    }
+
+    public function majAdmin($id_admin,$login,$password,$reference)
+    {
+        try {
+            $query = "SELECT modif_admin(:id_admin,:login,:password,:reference) as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':id_admin', $id_admin);
+            $_resultset->bindValue(':login', $login);
+            $_resultset->bindValue(':password', $password);
+            $_resultset->bindValue(':reference', $reference);
+
+            $_resultset->execute();
+            $retour = $_resultset->fetchColumn(0);
+
+            if($retour==1){
+                session_start();
+                unset($_SESSION['admin']);
+                $_SESSION['admin']=$login;
+            }
+            return $retour;
+
+        } catch (PDOException $e) {
+            print "Erreur : " . $e->getMessage();
+        }
+    }
 }
