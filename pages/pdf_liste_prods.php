@@ -15,19 +15,42 @@ $pdf = new TCPDF('P', 'mm', 'A4');
 
 $pdf->AddPage();
 
-$pdf->SetFont('times', 'B', 15);
-$pdf->SetTextColor(255,0,0);
+$pdf->SetFont('Helvetica', 'B', 15);
 $pdf->Cell(190, 10, 'Nos produits', 1, 1, 'C');
 
-$pdf->SetTextColor(0,0,0);
-$pdf->SetFont('times', '', 12);
+$pdf->SetTextColor(0, 0, 0);
+$pdf->SetFont('Helvetica', '', 12);
+$pdf->ln();
+$pdf->ln(2);
 
-$x=20;
-$y=50;
+$pdf->SetFont('Helvetica','B',11);
 
+$pdf->cell(10, 5, "Id", 1);
+$pdf->cell(30, 5, "Nom produit", 1);
+$pdf->cell(30, 5, "Prix", 1);
+$pdf->cell(30,5,"Année de prod",1);
+$pdf->cell(40,5,"Constructeur",1);
+$pdf->cell(40,5,"Catégorie",1);
+$pdf->cell(10,5,"Ref",1);
+
+$pdf->SetFont('Helvetica','',12);
+
+
+$pdf->ln();
 for ($i = 0; $i < $nbr; $i++) {
-    $pdf->WriteHTMLCell(150,30,$x,$y,$liste[$i]->nom_prod,1,1,'','','L');
-    $y+=10;
+    $pdf->cell(10, 5, $liste[$i]->id_prod, 1);
+    $pdf->cell(30, 5, $liste[$i]->nom_prod, 1);
+    $pdf->cell(30, 5, $liste[$i]->prix, 1);
+    $pdf->cell(30,5,$liste[$i]->annee_prod,1);
+    $pdf->cell(40,5,$liste[$i]->nom_const,1);
+    $pdf->cell(40,5,$liste[$i]->nom_cat,1);
+    $pdf->cell(10,5,$liste[$i]->reference,1);
+    $pdf->ln();
+
 }
 
-$pdf->Output('liste_des_produits.pdf','D');
+
+
+
+
+$pdf->Output('liste_des_produits.pdf', 'I');

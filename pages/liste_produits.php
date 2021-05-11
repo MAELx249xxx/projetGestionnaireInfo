@@ -64,3 +64,5 @@ $nbr = count($liste);
 
         </tbody>
     </table>
+
+<a href="pages/pdf_liste_prods.php">Liste des produits en fichier PDF.</a><br>
