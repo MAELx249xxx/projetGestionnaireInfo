@@ -30,7 +30,10 @@
 
         <map name="ytb">
             <area shape="rect" coords="2,161,21,187" href="./admin/index_.php"/>
+            <area shape="rect" coords="740,161,755,187" href="https://www.youtube.com/watch?v=xzDlJZnC1Zk" target="_blank"/>
         </map>
 
     </figure>
+
+    <p>(Il y a un autre petit easter egg dans l'image en lien :D )</p>
 </div>
