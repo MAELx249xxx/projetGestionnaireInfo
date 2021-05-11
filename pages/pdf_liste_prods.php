@@ -20,6 +20,7 @@ $pdf->Cell(190, 10, 'Nos produits', 1, 1, 'C');
 
 $pdf->SetTextColor(0, 0, 0);
 $pdf->SetFont('Helvetica', '', 12);
+
 $pdf->ln();
 $pdf->ln(2);
 
@@ -35,8 +36,8 @@ $pdf->cell(10,5,"Ref",1);
 
 $pdf->SetFont('Helvetica','',12);
 
-
 $pdf->ln();
+
 for ($i = 0; $i < $nbr; $i++) {
     $pdf->cell(10, 5, $liste[$i]->id_prod, 1);
     $pdf->cell(30, 5, $liste[$i]->nom_prod, 1);
@@ -48,9 +49,5 @@ for ($i = 0; $i < $nbr; $i++) {
     $pdf->ln();
 
 }
-
-
-
-
 
 $pdf->Output('liste_des_produits.pdf', 'I');

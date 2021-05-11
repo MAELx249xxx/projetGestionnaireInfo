@@ -21,6 +21,10 @@
 
     <p>Pour vous dirigez, utilisez la barre de navigation en haut du site.</p>
 
+    <p>&nbsp;</p>
+
+    <p>!!! Pour aller dans la partie admin, il faut appuyer sur en bas à gauche de l'image !!!</p>
+
     <figure class="figure">
         <img src="./admin/images/Entrepot.png" width="759" height="189" alt="stocks" usemap="#ytb" />
 
