@@ -39,6 +39,17 @@ if (!isset($_SESSION['utilisateur'])) {
     <div class="mb-3">
         <label for="password" class="form-label">Mot de passe</label>
         <input type="password" class="form-control" id="password" name="password">
+        <input type="checkbox" onclick="mdp()">Montrer le mot de passe
+        <script>
+            function mdp() {
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
     </div>
     <button type="submit" class="btn btn-primary" name="submit">Se connecter</button>
 </form>

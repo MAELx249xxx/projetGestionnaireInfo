@@ -36,7 +36,18 @@ if (isset($_GET['inserer_uti'])) {
     </div>
     <div class="col-md-2">
         <label for="password" class="form-label">Mot de passe</label>
-        <input type="text" class="form-control" id="password" name="password">
+        <input type="password" class="form-control" id="password" name="password">
+        <input type="checkbox" onclick="mdp()">Montrer le mot de passe
+        <script>
+            function mdp() {
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
     </div>
     <div class="col-md-3">
         <label for="rue" class="form-label">Rue</label>

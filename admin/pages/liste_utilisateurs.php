@@ -10,6 +10,8 @@ if(isset($_SESSION['admin'])){
     <h1 class="h1">Liste des utilisateurs</h1>
     <p>&nbsp;</p>
 
+    <p>Les mots de passe des utilisateurs ne sont pas affichés car ils sont privés.</p>
+
 <table class="table">
     <thead>
     <tr>
@@ -17,7 +19,6 @@ if(isset($_SESSION['admin'])){
         <th scope="col">Nom</th>
         <th scope="col">Prénom</th>
         <th scope="col">Login</th>
-        <th scope="col">Mot de passe</th>
         <th scope="col">Rue</th>
         <th scope="col">Numéro</th>
         <th scope="col">Pays</th>
@@ -48,11 +49,6 @@ if(isset($_SESSION['admin'])){
             <td>
                 <span name="login" id="<?php print $liste[$i]->id_utili; ?>">
                     <?php print $liste[$i]->login; ?>
-                </span>
-            </td>
-            <td>
-                <span name="password" id="<?php print $liste[$i]->id_utili; ?>">
-                    <?php print $liste[$i]->password; ?>
                 </span>
             </td>
             <td>

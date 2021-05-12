@@ -37,7 +37,18 @@ if (isset($_GET['supprimer'])) {
     </div>
     <div class="col-md-2">
         <label for="password2" class="form-label">Mot de passe</label>
-        <input type="text" class="form-control" id="password2" name="password2">
+        <input type="password" class="form-control" id="password2" name="password2">
+        <input type="checkbox" onclick="mdp()">Montrer le mot de passe
+        <script>
+            function mdp() {
+                var x = document.getElementById("password2");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
     </div>
     <div class="col-md-3">
         <label for="rue2" class="form-label">Rue</label>
